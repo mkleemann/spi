@@ -69,7 +69,7 @@ uint8_t spi_putc(uint8_t data)
    SPDR = data;
 
    // wait until byte was send
-   while( !( SPSR & (1<<SPIF) ) )
+   while( !(SPSR & (1 << SPIF)) )
       ;
 
    // return value of SPI data register
