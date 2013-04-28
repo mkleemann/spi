@@ -1,6 +1,46 @@
 /**
  * \page page_spi SPI Interface
- * \section spi_brief Common SPI Communication
+ * \section sec_spi_brief Common SPI Communication
  *
- * This module can be used to communicate via SPI, either as master or slave.
+ * This module can be used to communicate via the SPI, either as master
+ * or slave node. Th emodule provides the means to initialize port pins,
+ * given by the configuration file (see spi_config_example.h), and the
+ * clock on which the SPI works.
+ *
+ * The initialization is split to the common path (port pin initialization)
+ * and the part to chose between master or slave node.
+ *
+ * \sa spi_pin_init, spi_slave_init, spi_master_init
+ *
+ * \section sec_spi_usage SPI Usage
+ *
+ * To use the SPI you just need to put a byte to the interface and
+ * simply read the return value, which is the value gotten from the
+ * interface. If you only need to read from the interface, you might
+ * write simply a '0xFF' to it. In most of the cases this works fine.
+ *
+ * Example:
+ * \code
+ * #include "modules/spi/spi.h"
+ *
+ * int main(void)
+ * {
+ *    uint8_t byteRead = 0;
+ *    uint8_t byteSend = 0xFF;
+ *
+ *    // initialize the port pins
+ *    spi_pin_init();
+ *
+ *    // as master
+ *    spi_master_init();
+ *
+ *    // write (and read!) byte to (from) SPI
+ *    byteRead = spi_putc(byteSend);
+ *
+ *    // do something more with SPI here...
+ *
+ *    return 0;
+ * }
+ * \endcode
+ *
  */

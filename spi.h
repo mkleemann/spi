@@ -45,7 +45,8 @@
  * \def R_SPCR
  * \brief register value of AVR's SPCR
  *
- * The setup of the SPR0 and SPR1 bit in SPCR register.
+ * The setup of SPR0 and SPR1 bit in SPCR register. This depends strongly
+ * on the prescaler value given.
  */
 
 // now start calculating prescaler values. Start with SPI2X bit...
@@ -55,6 +56,10 @@
 #else
    #define R_SPSR             0
    #define SPI_PRESCALER_     SPI_PRESCALER
+#endif
+
+#ifdef __DOXYGEN__
+   #define R_SPCR
 #endif
 
 // ... and add SPR0/1.
@@ -76,26 +81,26 @@
 /***************************************************************************/
 
 /**
- * @brief activate SPI pins of AVR
+ * \brief activate SPI pins of AVR
  */
 void spi_pin_init(void);
 
 
 /**
- * @brief activate SPI interface as master
+ * \brief activate SPI interface as master
  */
 void spi_master_init(void);
 
 
 /**
- * @brief activate SPI interface as slave
+ * \brief activate SPI interface as slave
  */
 void spi_slave_init(void);
 
 /**
- * @brief  writes (and reads!) a byte via hardware SPI
- * @param  data byte to send
- * @return data byte received
+ * \brief  writes (and reads!) a byte via hardware SPI
+ * \param  data byte to send
+ * \return data byte received
  */
 uint8_t spi_putc(uint8_t data);
 

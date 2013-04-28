@@ -23,7 +23,7 @@
 #include "spi.h"
 
 /**
- * @brief setup of SPI pins
+ * \brief setup of SPI pins
  */
 void spi_pin_init(void)
 {
@@ -39,7 +39,7 @@ void spi_pin_init(void)
 }
 
 /**
- * @brief activate SPI interface as master
+ * \brief activate SPI interface as master
  */
 void spi_master_init(void)
 {
@@ -49,7 +49,7 @@ void spi_master_init(void)
 }
 
 /**
- * @brief activate SPI interface as slave
+ * \brief activate SPI interface as slave
  */
 void spi_slave_init(void)
 {
@@ -59,9 +59,9 @@ void spi_slave_init(void)
 }
 
 /**
- * @brief  writes (and reads!) a byte via hardware SPI
- * @param  data byte to send
- * @return data byte received
+ * \brief  writes (and reads!) a byte via hardware SPI
+ * \param  data byte to send
+ * \return data byte received
  */
 uint8_t spi_putc(uint8_t data)
 {
